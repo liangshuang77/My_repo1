@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>调查问卷</title>
+		<style>
+			
+			body{
+				background-color:#cecece;
+			}
+			
+			.index{
+				margin: auto;
+				width:850px;
+				background-color: white;
+				box-shadow:8px 8px 18px #666666;
+				margin-top:20px;
+			}
+			
+		    h1{
+				color:#5555FF;
+				padding-top:30px;
+				text-align:center;
+			}
+			form{
+				padding-left: 100px;
+				line-height:150%;
+			}
+			
+			input{
+				border-color: black;
+				border-top-width:0px;
+				border-right-width:0px;
+				border-bottom-width:2px;
+				border-left-width:0px;
+			}
+			
+			#btn{
+				background-color: #5555ff;
+				color:white;
+				padding:5px 10px;
+				margin-left:320px;
+				margin-top:16px;
+				margin-bottom: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="index">
+			<h1>学生调查问卷</h1>
+			<hr color="#5555ff" width="650px" />
+			<form method="post" action="URL">
+				
+				<ol>
+				<h3>亲爱的同学：</h3>
+					<p>
+						您好！请您先仔细阅读题目及答案，再根据您对题目叙述的看法，逐题填写。本问卷的各项答案无所谓好坏对错，且问卷所得结果只做团体性分析，不做任何个别呈现。对外绝对保密，请您按照实际情况和真实想法填写问卷。<br\>
+						在此，我们对您的合作与支持表示衷心的感谢！
+					</p>
+					
+					<li>您所学的专业是</li>
+					<input type="text" name="username" required />
+					
+					<li>您所在的年级为</li>
+					<label><input type="radio" name="age" value="1" required />大一</label>
+					<label><input type="radio" name="age" value="2" />大二 </label>
+					<label><input type="radio" name="age" value="3" />大三</label>
+					<label><input type="radio" name="age" value="4" />大四</label>
+					
+					<li>您去复印店复印的资料类型为</li>
+					<label><input type="radio" name="use" value="1" required />活动策划与总结 </label>
+					<label><input type="radio" name="use" value="2" />纸质版作业 </label>
+					<label><input type="radio" name="use" value="3" />其他</label>
+					<input type="text" name="other" required />
+					
+					<li>您每次去复印店复印的数量</li>
+					<label><input type="radio" name="use" value="1"/>3份以内（含3份）</label><br />
+					<label><input type="radio" name="use" value="2"/>4-7份</label><br />
+					<label><input type="radio" name="use" value="3"/>8-10份</label><br />
+					<label><input type="radio" name="use" value="4" />10以上</label><br />
+					
+					<li>您每年去学校文印中心复印的数量大概是</li>
+					<label><input type="radio" name="use" value="1"/>0-30份</label><br />
+					<label><input type="radio" name="use" value="2"/>30-60份</label><br />
+					<label><input type="radio" name="use" value="3"/>60-100份</label><br />
+					<label><input type="radio" name="use" value="4" />100份以上</label><br />
+				</ol>
+				您的姓名<input type="text" name="username" required />
+				联系电话<input type="tel" name="tele" required />
+				<br />
+				感谢您的配合！
+				<br/>
+				<button id="btn" type="submit">提交问卷</button>
+				
+			</form>
+		</div>
+	</body>
+</html>
+
