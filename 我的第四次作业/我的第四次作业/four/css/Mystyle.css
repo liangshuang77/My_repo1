@@ -1,0 +1,41 @@
+        .zhuti{
+			width: 800px;
+			margin: 10px auto;
+		}
+		.biaoti_div{
+			width: 800px;
+			margin: 10px auto;
+			
+		}
+		
+		.pic{
+			width: 300px;
+			float: left;
+		}
+		.pic img{
+			width: 90%;
+			display: block;
+			height: auto;
+		}
+		.wenzi{
+			float: right;
+			width: 380px;
+			color:dimgray;
+		}
+		.mulu{
+			width: 800px;
+			margin: 10px auto;
+			float: left;
+			
+		}
+		p{
+			text-shadow: 45px;
+			color: dimgray;
+		}
+		h2{
+			color:#aaaaff;
+		}
+		ol li{
+			color: #aaaaff;
+			font-size: 20px;
+		}
