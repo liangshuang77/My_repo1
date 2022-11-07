@@ -1,0 +1,67 @@
+/*去除浏览器默认样式*/
+*{
+    padding: 0;
+    margin: 0;
+}
+/*设置背景颜色*/
+.login-bg{
+    height: 300px;
+    background-color: #009688;
+}
+/*设置登录容器*/
+.login-box-wrapper{
+    border-radius: 8px;
+   background-color: #ffffff;
+    box-shadow: 0 0 25px rgba(0, 150, 136, 1.0);
+    width: 350px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: -100px;
+    margin-bottom: 100px;
+}
+/*设置登录标题*/
+.login-box-wrapper  .login-title{
+    width: 350px;
+    height: 28px;
+    /*文字水平居中*/
+    line-height: 28px;
+    cursor: pointer;
+}
+.login-box-wrapper  .login-title span{
+    color: black;
+    font-size: 20px;
+}
+/*设置分割线样式*/
+.login-box-wrapper .hr-line-div{
+    width: 350px;
+    border-top: 1px solid #e4e3e3;
+    margin-bottom: 20px ;
+    margin-top: 10px;
+}
+/*设置login-box样式*/
+.login-box .paragraph{
+    line-height: 28px;
+    margin: 20px 0;
+    font-size: 18px;
+}
+.login-box input{
+     padding-left: 10px;
+     width:328px;
+    height: 36px;
+    outline: none;
+}
+.login-box .login-btn{
+    width: 150px;
+    line-height: 36px;
+    margin-top: 20px;
+     background-color:#009688;
+    border: none;
+    color: white;
+    padding: 0;
+}
+/*设置返回首页按钮样式*/
+.login-box .login-btn:nth-child(2){
+    margin-left: 38px;
+}
+
+
