@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        ul {
+            list-style: none;
+        }
+ 
+        img {
+            vert-align: top;
+        }
+ 
+        .box {
+            width: 730px;
+            height: 454px;
+            border: 1px solid #aaa;
+            background: #f2f2f2;
+            padding: 5px;
+            margin: 100px auto;
+        }
+ 
+        .inner {
+            width: 730px;
+            height: 454px;
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        .inner ul {
+            width: 7300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+ 
+        ul li {
+            float: left;
+        }
+ 
+        .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+ 
+        .square span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+        }
+ 
+        .square span.current {
+            background-color: orangered;
+            color: #fff;
+        }
+ 
+        #focusD {
+            display: none;
+        }
+ 
+        #focusD span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+ 
+        #focusD #right {
+            right: 5px;
+            left: auto;
+        }
+ 
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="img/微信截图_20221111174556.png" alt=""/></a></li>
+            <li><a href="#"><img src="img/微信截图_20221111174540.png" alt=""/></a></li>
+            <li><a href="#"><img src="img/库洛米.png" alt=""/></a></li>
+            <li><a href="#"><img src="img/微信截图_20221111174607.png" alt=""/></a></li>
+            <li><a href="#"><img src="img/微信截图_20221111174633.png" alt=""/></a></li>
+            <li><a href="#"><img src="img/微信截图_20221111174618.png" alt=""/></a></li>
+        </ul>
+       <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+           <span>3</span>
+            <span>4</span>
+            <span>5</span>
+           <span>6</span>
+     </div>
+        <div id="focusD">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+    </div>
+</div>
+ 
+<script>
+    function my$(id) {
+        return document.getElementById(id)
+    }
+ 
+    //获取外层div
+    var boxObj = my$('box')
+    //获取相框
+    var innerObj = boxObj.children[0]
+    //相框宽度
+    var imgWidth = innerObj.offsetWidth
+    //获取ul
+    var ulObj = innerObj.children[0]
+    console.log(ulObj)
+    //获取左右标签
+    var focusDObj = my$('focusD')
+    var leftObj = my$('left')
+    var rightObj = my$('right')
+    console.log(leftObj)
+    console.log(rightObj)
+    //鼠标离开事件
+    box.onmouseout = function(){
+        focusDObj.style.display = 'none'
+    }
+    //鼠标进入事件
+    box.onmouseover = function(){
+        focusDObj.style.display = 'block'
+    }
+ 
+    //右边按钮
+    var index = 0
+    my$('right').onclick = function () {
+        if(index < ulObj.children.length - 1){
+            index++
+            animate(ulObj, -index*imgWidth)
+        }
+    }
+    //左边按钮
+    my$('left').onclick = function(){
+        if(index > 0){
+            index--
+            animate(ulObj, index*imgWidth)
+        }
+    }
+ 
+    function animate(element, target) {
+        clearInterval(element.timeId)
+        element.timeId = setInterval(function () {
+            var current = element.offsetLeft
+            var step = 10
+            step = current < target ? step : -step
+            current += step
+            if (Math.abs(current - target) > Math.abs(step)) {
+                element.style.left = current + 'px'
+            } else {
+                clearInterval(element.timeId)
+                element.style.left = target + 'px'
+            }
+        }, 10)
+    }
+  function my$(id) {
+         return document.getElementById(id)
+     }
+  
+     //最外面div
+     var boxObj = my$('box')
+     //相框
+     var innerObj = boxObj.children[0]
+     //相框宽度
+     var imgWidth = innerObj.offsetWidth;
+     //获取ul
+     var ulObj = innerObj.children[0]
+     //获取span
+     var spanObjs = innerObj.children[1].children
+     //循环遍历所有的span标签，注册鼠标进入的点击事件
+     for (var i = 0; i < spanObjs.length; i++) {
+         //循环的时候把索引值保存在每个span的自定义属性中
+         spanObjs[i].setAttribute('index', i)
+         //鼠标进入取消点击  然后在改变点击颜色
+         spanObjs[i].onmouseover = function () {
+             for (var j = 0; j < spanObjs.length; j++) {
+                 spanObjs[j].removeAttribute('class')
+             }
+  
+             this.className = 'current'
+             var index = this.getAttribute('index')
+             console.log(index)
+             animate(ulObj, -index * imgWidth)
+             console.log(imgWidth)
+         }
+     }
+  
+     function animate(element, target) {
+         clearInterval(element.timeId)
+         element.timeId = setInterval(function () {
+             var current = element.offsetLeft
+             var step = 10
+             step = current < target ? step : -step
+             current += step
+             if (Math.abs(current - target) > Math.abs(step)) {
+                 element.style.left = current + 'px'
+             } else {
+                 clearInterval(element.timeId)
+                 element.style.left = target + 'px'
+             }
+         }, 10)
+     }
+
+ 
+</script>
+</body>
+</html>
